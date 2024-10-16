@@ -37,7 +37,22 @@ def convert():
             "font-family: 'Comic Sans MS'; font-weight: bold"
         )
         convert_result = ui.label(
-            f"{value}{weight.measure_units[from_unit]} = {float(result)}{weight.measure_units[to_unit]}"
+            f"{value}{weight.measure_units[from_unit]} = {int(result)}{weight.measure_units[to_unit]}"
+        ).style("font-family: 'Comic Sans MS'; font-size: 24px; font-weight: bold")
+
+    if tabs.value == "Length":
+        value = length_input.value
+        from_unit = length_from_input.value
+        to_unit = length_to_input.value
+
+        length = Length(value, from_unit, to_unit)
+        result = length.convert_length()
+
+        result_label = ui.label("Result of your calculation").style(
+            "font-family: 'Comic Sans MS'; font-weight: bold"
+        )
+        convert_result = ui.label(
+            f"{value}{length.measure_units[from_unit]} = {float(result):.2f}{length.measure_units[to_unit]}"
         ).style("font-family: 'Comic Sans MS'; font-size: 24px; font-weight: bold")
 
     reset_button = ui.button("Reset", on_click=reset_page).style(
@@ -161,15 +176,15 @@ with ui.card().classes("fixed-center").style("height: 560px"):
             length_from_input_label = ui.label("Unit to convert from").style(
                 "font-family: 'Comic Sans MS'; font-weight: bold; font-size: 17px"
             )
-            length_from_input = ui.input(placeholder="From unit (e.g., meter)").style(
-                "font-family: 'Comic Sans MS'"
+            length_from_input = ui.select(
+                options=list(Length.measure_units.keys()), with_input=True
             )
 
             length_to_input_label = ui.label("Unit to convert to").style(
                 "font-family: 'Comic Sans MS'; font-weight: bold; font-size: 15px"
             )
-            length_to_input = ui.input(placeholder="To unit (e.g., centimeter)").style(
-                "font-family: 'Comic Sans MS'"
+            length_to_input = ui.select(
+                options=list(Length.measure_units.keys()), with_input=True
             )
 
             length_convert_button = ui.button("Convert", on_click=convert).style(
