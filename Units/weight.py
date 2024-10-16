@@ -1,6 +1,3 @@
-from math import pow
-
-
 class Weight:
     def __init__(self, value, from_unit, to_unit):
         self.__value = value
