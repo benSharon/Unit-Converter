@@ -1,7 +1,7 @@
 from nicegui import ui
-from Units.Temperature import Temperature
-from Units.Weight import Weight
-from Units.Length import Length
+from Units.temperature import Temperature
+from Units.weight import Weight
+from Units.length import Length
 
 
 def convert():
