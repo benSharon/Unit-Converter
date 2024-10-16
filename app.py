@@ -55,6 +55,7 @@ def convert():
             f"{value}{length.measure_units[from_unit]} = {float(result):.2f}{length.measure_units[to_unit]}"
         ).style("font-family: 'Comic Sans MS'; font-size: 24px; font-weight: bold")
 
+    # Only once instance of 'reset' button to reset the page
     reset_button = ui.button("Reset", on_click=reset_page).style(
         "font-family: 'Comic Sans MS'"
     )
