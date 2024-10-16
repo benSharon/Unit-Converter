@@ -6,7 +6,7 @@ class Temperature:
 
     measure_units = {"Celsius": "°C", "Kelvin": "°K", "Fahrenheit": "°F"}
 
-    conversion_methods = {
+    __conversion_methods = {
         "celsius": {
             "kelvin": lambda v: float(v) + 273.15,
             "fahrenheit": lambda v: (float(v) * 9 / 5) + 32,
@@ -24,4 +24,4 @@ class Temperature:
     def convert_temperature(self):
         if self.__from_unit == self.__to_unit:
             return self.__value
-        return self.conversion_methods[self.__from_unit][self.__to_unit](self.__value)
+        return self.__conversion_methods[self.__from_unit][self.__to_unit](self.__value)

@@ -14,7 +14,7 @@ class Length:
         "Mile": "mile",
     }
 
-    conversion_factors = {
+    __conversion_factors = {
         "centimeter": 0.01,
         "meter": 1,
         "kilometer": 1000,
@@ -26,6 +26,6 @@ class Length:
 
     def convert_length(self):
         # Convert value to meters first
-        value_in_meter = float(self.__value) * self.conversion_factors[self.__from_unit]
+        value_in_meter = float(self.__value) * self.__conversion_factors[self.__from_unit]
         # Then, convert it to target unit
-        return value_in_meter / self.conversion_factors[self.__to_unit]
+        return value_in_meter / self.__conversion_factors[self.__to_unit]
