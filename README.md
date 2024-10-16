@@ -83,10 +83,12 @@ This project is licensed under the MIT License. Feel free to modify and use it a
 
 
 ## Screenshots:
-![[Pasted image 20241016234615.png]]
+![image](https://github.com/user-attachments/assets/ebfad5f3-72aa-4727-94fb-316934d6f58d)
 
-![[Pasted image 20241016234649.png]]
+![image](https://github.com/user-attachments/assets/9041d22e-9f2f-4a8c-aaa5-9f7651f03f8f)
 
-![[Pasted image 20241016234709.png]]
+![image](https://github.com/user-attachments/assets/56d39f35-b34a-417e-81c8-556dd4a55ac8)
+
+
 ## Project URL:
 https://roadmap.sh/projects/unit-converter
