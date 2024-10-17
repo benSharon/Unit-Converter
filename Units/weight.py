@@ -4,6 +4,7 @@ class Weight:
         self.__from_unit = from_unit.lower()
         self.__to_unit = to_unit.lower()
 
+    # Public dictionary to be accessed in app.py to display the weight unit symbols
     measure_units = {
         "Gram": "g",
         "Milligram": "mg",
