@@ -6,6 +6,7 @@ class Temperature:
 
     measure_units = {"Celsius": "°C", "Kelvin": "°K", "Fahrenheit": "°F"}
 
+    # Public dictionary to be accessed in app.py to display the temperature symbols
     __conversion_methods = {
         "celsius": {
             "kelvin": lambda v: float(v) + 273.15,
