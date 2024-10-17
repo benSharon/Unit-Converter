@@ -4,6 +4,7 @@ class Length:
         self.__from_unit = from_unit.lower()
         self.__to_unit = to_unit.lower()
 
+    # Public dictionary to be accessed in app.py to display the metric symbols
     measure_units = {
         "Centimeter": "cm",
         "Meter": "m",
@@ -14,6 +15,8 @@ class Length:
         "Mile": "mile",
     }
 
+    # Conversion factors from base unit (meters)
+    # All units are converted to meters
     __conversion_factors = {
         "centimeter": 0.01,
         "meter": 1,
