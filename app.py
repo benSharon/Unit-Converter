@@ -4,8 +4,8 @@ from Units.weight import Weight
 from Units.length import Length
 
 
+# Inspecting if inputs are empty and if value is not digits
 def inputs_police(value, from_unit, to_unit):
-    # Inspecting if inputs are empty and if value is not digits
     if None in (value, from_unit, to_unit):
         dialog = ui.dialog()
         with dialog, ui.card():
@@ -84,7 +84,7 @@ def convert():
         ).style("font-family: 'Comic Sans MS'; font-size: 24px; font-weight: bold")
 
     # Only one instance of 'reset' button to reset the page
-    reset_button = ui.button("Reset", on_click=reset_page).style(
+    reset_button = ui.button("Reset", on_click=reset_page()).style(
         "font-family: 'Comic Sans MS'"
     )
 
