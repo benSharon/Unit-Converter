@@ -20,7 +20,7 @@ def inputs_police(value, from_unit, to_unit):
             ui.label("Invalid value! It should be numbers only.")
             ui.button("OK", on_click=lambda: (dialog.close(), reset_page()))
         dialog.open()
-        return  # (Crucial) Stop further execution when dialog card is popped up
+        return  # Stop further execution when dialog card is popped up
 
 
 def convert():
