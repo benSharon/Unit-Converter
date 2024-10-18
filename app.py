@@ -4,46 +4,38 @@ from Units.weight import Weight
 from Units.length import Length
 
 
+def inputs_police(value, from_unit, to_unit):
+    # Inspecting if inputs are empty and if value is not digits
+    if None in (value, from_unit, to_unit):
+        dialog = ui.dialog()
+        with dialog, ui.card():
+            ui.label("All inputs must not be empty.")
+            ui.button("OK", on_click=lambda: (dialog.close(), reset_page()))
+        dialog.open()
+        return  # (Crucial) Stop further execution when dialog card is popped up
+
+    if not value.isdigit():
+        dialog = ui.dialog()
+        with dialog, ui.card():
+            ui.label("Invalid value! It should be numbers only.")
+            ui.button("OK", on_click=lambda: (dialog.close(), reset_page()))
+        dialog.open()
+        return  # (Crucial) Stop further execution when dialog card is popped up
+
+
 def convert():
     global result_label, convert_result, reset_button
 
     # clear labels and inputs
     clear_inputs()
 
-    if tabs.value == "Temperature":
-        value = temperature_input.value
-        from_unit = temperature_from_input.value
-        to_unit = temperature_to_input.value
-
-        temperature = Temperature(value, from_unit, to_unit)
-        result = temperature.convert_temperature()
-
-        result_label = ui.label("Result of your calculation").style(
-            "font-family: 'Comic Sans MS'; font-weight: bold"
-        )
-        convert_result = ui.label(
-            f"{value}{temperature.measure_units[from_unit]} = {int(result)}{temperature.measure_units[to_unit]}"
-        ).style("font-family: 'Comic Sans MS'; font-size: 24px; font-weight: bold")
-
-    if tabs.value == "Weight":
-        value = weight_input.value
-        from_unit = weight_from_input.value
-        to_unit = weight_to_input.value
-
-        weight = Weight(value, from_unit, to_unit)
-        result = weight.convert_weight()
-
-        result_label = ui.label("Result of your calculation").style(
-            "font-family: 'Comic Sans MS'; font-weight: bold"
-        )
-        convert_result = ui.label(
-            f"{value}{weight.measure_units[from_unit]} = {int(result)}{weight.measure_units[to_unit]}"
-        ).style("font-family: 'Comic Sans MS'; font-size: 24px; font-weight: bold")
-
+    # If "Length" tab is clicked/chosen
     if tabs.value == "Length":
         value = length_input.value
         from_unit = length_from_input.value
         to_unit = length_to_input.value
+
+        inputs_police(value, from_unit, to_unit)
 
         length = Length(value, from_unit, to_unit)
         result = length.convert_length()
@@ -55,7 +47,43 @@ def convert():
             f"{value}{length.measure_units[from_unit]} = {float(result):.2f}{length.measure_units[to_unit]}"
         ).style("font-family: 'Comic Sans MS'; font-size: 24px; font-weight: bold")
 
-    # Only once instance of 'reset' button to reset the page
+    # If "Weight" tab is clicked/chosen
+    if tabs.value == "Weight":
+        value = weight_input.value
+        from_unit = weight_from_input.value
+        to_unit = weight_to_input.value
+
+        inputs_police(value, from_unit, to_unit)
+
+        weight = Weight(value, from_unit, to_unit)
+        result = weight.convert_weight()
+
+        result_label = ui.label("Result of your calculation").style(
+            "font-family: 'Comic Sans MS'; font-weight: bold"
+        )
+        convert_result = ui.label(
+            f"{value}{weight.measure_units[from_unit]} = {int(result)}{weight.measure_units[to_unit]}"
+        ).style("font-family: 'Comic Sans MS'; font-size: 24px; font-weight: bold")
+
+    # If "Temperature" tab is clicked/chosen
+    if tabs.value == "Temperature":
+        value = temperature_input.value
+        from_unit = temperature_from_input.value
+        to_unit = temperature_to_input.value
+
+        inputs_police(value, from_unit, to_unit)
+
+        temperature = Temperature(value, from_unit, to_unit)
+        result = temperature.convert_temperature()
+
+        result_label = ui.label("Result of your calculation").style(
+            "font-family: 'Comic Sans MS'; font-weight: bold"
+        )
+        convert_result = ui.label(
+            f"{value}{temperature.measure_units[from_unit]} = {int(result)}{temperature.measure_units[to_unit]}"
+        ).style("font-family: 'Comic Sans MS'; font-size: 24px; font-weight: bold")
+
+    # Only one instance of 'reset' button to reset the page
     reset_button = ui.button("Reset", on_click=reset_page).style(
         "font-family: 'Comic Sans MS'"
     )
@@ -119,7 +147,7 @@ def reset_inputs(labels, inputs, button):
 
 
 def reset_page():
-    global result_label, convert_result, reset_button
+    global reset_button, result_label, convert_result
 
     if tabs.value == "Length":
         reset_inputs(
@@ -146,9 +174,9 @@ def reset_page():
             temperature_convert_button,
         )
 
-    # To make sure that elements are not visibly AND invisibly created
+    # To make sure that elements are not created
     # hence increasing the card's height
-    for element in [result_label, reset_button, convert_result]:
+    for element in [reset_button, result_label, convert_result]:
         if element:
             element.remove(element)
 
@@ -193,7 +221,6 @@ with ui.card().classes("fixed-center").style("height: 560px"):
             )
 
         with ui.tab_panel("Weight"):
-            # with ui.card():
             weight_input_label = ui.label("Enter the weight to convert").style(
                 "font-family: 'Comic Sans MS'; font-weight: bold; font-size: 15px"
             )
@@ -220,7 +247,6 @@ with ui.card().classes("fixed-center").style("height: 560px"):
             )
 
         with ui.tab_panel("Temperature"):
-            # with ui.card():
             temperature_input_label = ui.label(
                 "Enter the temperature to convert"
             ).style("font-family: 'Comic Sans MS'; font-weight: bold; font-size: 15px")
