@@ -63,6 +63,12 @@ This will start the NiceGUI application, and the UI will be accessible in your b
 4. Click "Convert" to get the result.
 5. Click "Reset" to clear the input fields and start a new conversion.
 
+![image](https://github.com/user-attachments/assets/ebfad5f3-72aa-4727-94fb-316934d6f58d)
+
+![image](https://github.com/user-attachments/assets/9041d22e-9f2f-4a8c-aaa5-9f7651f03f8f)
+
+![image](https://github.com/user-attachments/assets/56d39f35-b34a-417e-81c8-556dd4a55ac8)
+
 ## Units Supported
 
 - **Length**: Centimeter, Meter, Kilometer, Foot, Inch, Yard, Mile
@@ -80,15 +86,6 @@ This project is licensed under the MIT License. Feel free to modify and use it a
 ## Acknowledgements
 
 - [NiceGUI](https://nicegui.io/) - A Python framework for building beautiful web-based user interfaces with minimal code.
-
-
-## Screenshots:
-![image](https://github.com/user-attachments/assets/ebfad5f3-72aa-4727-94fb-316934d6f58d)
-
-![image](https://github.com/user-attachments/assets/9041d22e-9f2f-4a8c-aaa5-9f7651f03f8f)
-
-![image](https://github.com/user-attachments/assets/56d39f35-b34a-417e-81c8-556dd4a55ac8)
-
 
 ## Project URL:
 https://roadmap.sh/projects/unit-converter
