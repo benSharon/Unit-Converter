@@ -17,7 +17,7 @@ def inputs_police(value, from_unit, to_unit):
     if not value.isdigit():
         dialog = ui.dialog()
         with dialog, ui.card():
-            ui.label("Invalid value! It should be numbers only.")
+            ui.label("Invalid value! Input must be numbers only.")
             ui.button("OK", on_click=lambda: (dialog.close(), reset_page()))
         dialog.open()
         return  # Stop further execution when dialog card is popped up
