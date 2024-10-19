@@ -24,8 +24,12 @@ class Weight:
     }
 
     def convert_weight(self):
-        if (self.__from_unit in self.__conversion_factors) and (self.__to_unit in self.__conversion_factors):
+        if (self.__from_unit in self.__conversion_factors) and (
+            self.__to_unit in self.__conversion_factors
+        ):
             # First, convert value in grams
-            value_in_grams = int(self.__value) / self.__conversion_factors[self.__from_unit]
+            value_in_grams = (
+                int(self.__value) / self.__conversion_factors[self.__from_unit]
+            )
             # Then, convert grams to target unit
             return value_in_grams * self.__conversion_factors[self.__to_unit]

@@ -29,6 +29,8 @@ class Length:
 
     def convert_length(self):
         # Convert value to meters first
-        value_in_meter = float(self.__value) * self.__conversion_factors[self.__from_unit]
+        value_in_meter = (
+            float(self.__value) * self.__conversion_factors[self.__from_unit]
+        )
         # Then, convert it to target unit
         return value_in_meter / self.__conversion_factors[self.__to_unit]
