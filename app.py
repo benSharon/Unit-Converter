@@ -9,7 +9,7 @@ def inputs_police(value, from_unit, to_unit):
     if None in (value, from_unit, to_unit):
         dialog = ui.dialog()
         with dialog, ui.card():
-            ui.label("All inputs must not be empty.")
+            ui.label("Please fill all inputs.")
             ui.button("OK", on_click=lambda: (dialog.close(), reset_page()))
         dialog.open()
         return  # (Crucial) Stop further execution when dialog card is popped up
