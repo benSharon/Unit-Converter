@@ -14,10 +14,10 @@ def inputs_police(value, from_unit, to_unit):
         dialog.open()
         return  # (Crucial) Stop further execution when dialog card is popped up
 
-    if not value.isdigit():
+    if not value.isdigit() or value is "":
         dialog = ui.dialog()
         with dialog, ui.card():
-            ui.label("Invalid value! Input must be in digits")
+            ui.label("Invalid value! Input must be digits and not empty")
             ui.button("OK", on_click=lambda: (dialog.close(), reset_page()))
         dialog.open()
         return  # Stop further execution when dialog card is popped up
