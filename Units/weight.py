@@ -27,7 +27,7 @@ class Weight:
         if (self.__from_unit in self.__conversion_factors) and (
             self.__to_unit in self.__conversion_factors
         ):
-            # First, convert value in grams
+            # First, convert value to grams
             value_in_grams = (
                 int(self.__value) / self.__conversion_factors[self.__from_unit]
             )
