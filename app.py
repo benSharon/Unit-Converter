@@ -84,7 +84,7 @@ def convert():
         ).style("font-family: 'Comic Sans MS'; font-size: 24px; font-weight: bold")
 
     # Only one instance of 'reset' button to reset the page
-    reset_button = ui.button("Reset", on_click=reset_page()).style(
+    reset_button = ui.button("Reset", on_click=reset_page).style(
         "font-family: 'Comic Sans MS'"
     )
 
